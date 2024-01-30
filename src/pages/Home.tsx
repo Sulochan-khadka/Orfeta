@@ -1,4 +1,3 @@
-import React from 'react';
 import image from '../assets/oferta blue.png';
 import './home.css';
 

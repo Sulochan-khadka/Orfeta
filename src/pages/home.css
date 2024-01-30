@@ -7,12 +7,10 @@
 }
 @keyframes slideIn {
   from {
-    transform: translateX(
-      -100%
-    ); /* Start from the left (outside the viewport) */
+    transform: translateX(-100%);
   }
   to {
-    transform: translateX(0); /* Move to the original position */
+    transform: translateX(0);
   }
 }
 .image-container {
