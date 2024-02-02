@@ -1,5 +1,5 @@
-import React from 'react';
-import WebGiViewer from '../components/WebGiViewer';
+// import React from 'react';
+// import WebGiViewer from '../components/WebGiViewer';
 import Texts from '../components/Texts';
 
 const Intro = () => {
