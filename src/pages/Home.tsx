@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import image from '../assets/oferta blue.png';
 import './home.css';
 
@@ -13,6 +14,12 @@ const Home = () => {
           <div className='dots four'></div>
           <div className='dots five'></div>
         </div>
+      </div>
+      <div className=' flex justify-center items-center p-4'>
+        <Link to='/intro'>
+          <div className=' bg-slate-500 mr-2 p-2 rounded-lg'>English</div>
+        </Link>
+        <div className=' bg-slate-500 ml-2'>Spanish</div>
       </div>
     </div>
   );
