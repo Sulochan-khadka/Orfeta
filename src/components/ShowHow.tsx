@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './showHow.css';
 import { motion } from 'framer-motion';
 import logo from '../assets/oferta blue.png';
