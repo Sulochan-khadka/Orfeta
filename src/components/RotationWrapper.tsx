@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import * as THREE from 'three';
 
 export default function RotationWrapper(props) {
