@@ -10,13 +10,13 @@ const Texts = () => {
   const scrollRef2 = useRef(null);
   const scrollRef3 = useRef(null);
   const scrollRef4 = useRef(null);
-  const scrollRef5 = useRef(null);
+  // const scrollRef5 = useRef(null);
   const fadeOut2 = useRef(null);
   const fadeOut3 = useRef(null);
   const fadeOut4 = useRef(null);
-  const fadeOut5 = useRef(null);
+  // const fadeOut5 = useRef(null);
   const fadeOut6 = useRef(null);
-  const fadeOut7 = useRef(null);
+  // const fadeOut7 = useRef(null);
   //ref 5 is bottom
   const scrollRef6 = useRef(null);
   const scrollRef7 = useRef(null);

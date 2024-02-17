@@ -10,6 +10,8 @@ const ShowHow = () => {
   });
 
   useEffect(() => {
+    // @ts-expect-error Image width and height may not exist
+
     const mouseMove = (e) => {
       setMousePos({
         x: e.clientX,
