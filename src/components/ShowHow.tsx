@@ -20,7 +20,7 @@ const ShowHow = () => {
     x: 0,
     y: 0,
   });
-  const [cursorVariant, setCursorVariant] = useState('default');
+  // const [cursorVariant, setCursorVariant] = useState('default');
   useEffect(() => {
     // @ts-expect-error Image width and height may not exist
 
@@ -65,11 +65,7 @@ const ShowHow = () => {
   };
   return (
     <div ref={arrowRef} style={{ position: 'relative' }}>
-      <motion.div
-        className='cursor'
-        variants={variants}
-        animate={cursorVariant}
-      />
+      <motion.div className='cursor' variants={variants} animate='default' />
       <div
         className='logo'
         style={{ position: 'fixed', top: '0', left: '0', zIndex: '888' }}

@@ -1,11 +1,16 @@
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
+import React, { ReactNode } from 'react';
 
-function SmoothScroll({ children }) {
-  const lenis = useLenis(({ scroll }) => {
-    // called every scroll
-  });
+interface Props {
+  children: ReactNode;
+}
+
+const SmoothScroll: React.FC<Props> = ({ children }) => {
+  // const lenis = useLenis(({ scroll }) => {
+  //   // called every scroll
+  // });
 
   return <ReactLenis root>{children}</ReactLenis>;
-}
+};
 
 export default SmoothScroll;
