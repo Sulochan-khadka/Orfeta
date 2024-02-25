@@ -5,6 +5,10 @@ export default {
     extend: {
       fontFamily: {
         roboto: ['roboto', 'sans-serif'],
+        poppins: ['poppins', 'sans-serif'],
+      },
+      colors: {
+        lblue: '#00a3e9',
       },
     },
   },
