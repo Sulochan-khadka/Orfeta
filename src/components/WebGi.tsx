@@ -58,7 +58,12 @@ const WebGi = () => {
 
   return (
     <div
-      style={{ position: 'relative', display: 'flex', flexDirection: 'column' }}
+      style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        zIndex: '999',
+      }}
     >
       <Texts />
       <canvas

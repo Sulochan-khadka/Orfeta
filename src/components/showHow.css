@@ -5,7 +5,7 @@
   height: 150vh; 
 } */
 * {
-  cursor: none;
+  /* cursor: none; */
 }
 .logo {
   position: fixed;
@@ -16,14 +16,14 @@
 .black-container {
   margin-top: 100px;
   padding-top: 200px;
-  padding-right: 240px;
+  /* padding-right: 240px; */
   height: auto;
   background-color: black;
   border-top-left-radius: 120px;
   border-top-right-radius: 120px;
 }
-
 .button {
+  z-index: 1;
   height: 50px;
   width: 250px;
   border-radius: 25px;
@@ -32,6 +32,27 @@
   justify-content: center;
   align-items: center;
   margin: 50px 0;
+  position: relative;
+  overflow: hidden;
+  color: black;
+}
+
+.button:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 92%;
+  transform: translate(-50%, -50%) scale(1); /* Start with a small size */
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #00a3e9;
+  transition: transform 0.7s; /* Use transform for smooth scaling */
+}
+
+.button:hover:after {
+  transform: translate(-50%, -50%) scale(50); /* Grow to a larger size */
 }
 .cursor {
   background-color: #00a3e9;
@@ -44,4 +65,15 @@
 }
 .blue-text {
   color: #00a3e9;
+}
+
+svg {
+  /* background-color: blue; */
+  height: 100%;
+  width: 100%;
+}
+
+path {
+  stroke: white;
+  fill: none;
 }

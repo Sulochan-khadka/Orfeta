@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import image from '../assets/oferta blue.png';
+import image from '../assets/oferta.png';
 import './home.css';
 
 const Home = () => {

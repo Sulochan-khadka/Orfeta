@@ -1,0 +1,4 @@
+.center .slick-center {
+  transform: scale(1.3);
+  transition: all 0.8s;
+}
