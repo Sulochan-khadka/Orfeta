@@ -7,7 +7,7 @@ import Reach from './Reach';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import Features from './Features';
+// import Features from './Features';
 import Results from './Results';
 
 const ShowHow = () => {
@@ -155,7 +155,7 @@ const ShowHow = () => {
         <Oferta />
         <div style={{ height: '100vh' }}></div>
         <Reach />
-        <Features />
+        {/* <Features /> */}
         <Results />
       </div>
     </div>
