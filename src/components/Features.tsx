@@ -1,14 +1,38 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap/all';
-import SplitText from 'gsap-trial/SplitText';
 import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
+import 'splitting/dist/splitting.css';
+import 'splitting/dist/splitting-cells.css';
+import SplitType from 'split-type';
+import Splitting from 'splitting';
+import './features.css';
+
+// Splitting();
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SplitText);
 
 const Features = () => {
+  // const textRef = useRef(null);
+
+  // useEffect(() => {
+  //   Splitting({
+  //     target: overRef.current,
+  //     by: 'words',
+  //     animation: {
+  //       chars: {
+  //         opacity: 0,
+  //         translateY: '100%',
+  //         duration: 0.6,
+  //         delay: (charIndex, charLength) => charIndex * 0.05,
+  //         easing: 'easeOutCubic',
+  //         from: 'top',
+  //       },
+  //     },
+  //   });
+  // }, []);
   const staticRef = useRef(null);
   const scrollRef = useRef(null);
+  const overRef = useRef(null);
   const para1Ref = useRef(null);
   const para2Ref = useRef(null);
   const para3Ref = useRef(null);
@@ -18,10 +42,15 @@ const Features = () => {
   const para7Ref = useRef(null);
   const para8Ref = useRef(null);
   const para9Ref = useRef(null);
+  // const text = new SplitType(overRef.current, { types: 'words' });
+  // const line = new SplitType(staticRef.current, { types: 'lines' });
+  // const word = new SplitType(overRef.current, { types: 'words' });
+  // console.log('text is: ', text);
 
   useGSAP(() => {
     const staticPart = staticRef.current;
     const scrollPart = scrollRef.current;
+    // console.log(overRef.current);
 
     gsap.timeline({
       scrollTrigger: {
@@ -30,157 +59,26 @@ const Features = () => {
         end: `bottom 70%`,
         pin: staticPart,
         scrub: true,
+        // markers: true,
         onEnter: () => console.log('Pin starts'),
         onLeave: () => console.log('Pin ends'),
       },
     });
-    const t1 = gsap.timeline();
-    const mySplitText = new SplitText(para1Ref.current, { type: 'chars' });
-    const chars = mySplitText.chars;
-    t1.from(chars, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t2 = gsap.timeline();
-    const mySplitText2 = new SplitText(para2Ref.current, { type: 'chars' });
-    const chars2 = mySplitText2.chars;
-    t2.from(chars2, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars2,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t3 = gsap.timeline();
-    const mySplitText3 = new SplitText(para3Ref.current, { type: 'chars' });
-    const chars3 = mySplitText3.chars;
-    t3.from(chars3, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars3,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t4 = gsap.timeline();
-    const mySplitText4 = new SplitText(para4Ref.current, { type: 'chars' });
-    const chars4 = mySplitText4.chars;
-    t4.from(chars4, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars4,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t5 = gsap.timeline();
-    const mySplitText5 = new SplitText(para5Ref.current, { type: 'chars' });
-    const chars5 = mySplitText5.chars;
-    t5.from(chars5, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars5,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t6 = gsap.timeline();
-    const mySplitText6 = new SplitText(para6Ref.current, { type: 'chars' });
-    const chars6 = mySplitText6.chars;
-    t6.from(chars6, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars6,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t7 = gsap.timeline();
-    const mySplitText7 = new SplitText(para7Ref.current, { type: 'chars' });
-    const chars7 = mySplitText7.chars;
-    t7.from(chars7, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars7,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t8 = gsap.timeline();
-    const mySplitText8 = new SplitText(para8Ref.current, { type: 'chars' });
-    const chars8 = mySplitText8.chars;
-    t8.from(chars8, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars8,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-    const t9 = gsap.timeline();
-    const mySplitText9 = new SplitText(para9Ref.current, { type: 'chars' });
-    const chars9 = mySplitText9.chars;
-    t9.from(chars9, {
-      opacity: 0,
-      stagger: {
-        each: 0.5,
-      },
-      scrollTrigger: {
-        trigger: chars9,
-        start: 'top 50%',
-        end: 'bottom 45%',
-        // markers: true,
-        scrub: true,
-      },
-    });
-  }, []);
+    // gsap.from('.word', {
+    //   y: 220,
+    //   stagger: 0.5,
+    //   delay: 2,
+    // scrollTrigger: {
+    //   trigger: overRef.current,
+    //   start: 'top 50%',
+    //   end: 'bottom top',
+    //   markers: true,
+    //   scrub: 4,
+    // },
+    // });
+  });
   return (
-    <div className='flex'>
+    <div className='flex' ref={overRef}>
       <div
         className='poppins text-8xl text-white py-20'
         style={{ width: '60%', height: '100vh' }}
@@ -196,6 +94,7 @@ const Features = () => {
           <div
             className='text-2xl'
             style={{ paddingTop: '80%', paddingBottom: '10px' }}
+            // ref={textRef}
           >
             Targeted Marketing Solutions
           </div>
