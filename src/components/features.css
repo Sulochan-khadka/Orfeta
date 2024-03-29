@@ -1,0 +1,14 @@
+.line {
+  display: block;
+  text-align: start;
+  position: relative;
+}
+.word {
+  position: relative;
+  display: inline-block;
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(0px, 0px);
+  opacity: 1;
+}

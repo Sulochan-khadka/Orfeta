@@ -3,18 +3,23 @@ import './showHow.css';
 import { motion } from 'framer-motion';
 import logo from '../assets/oferta.png';
 import Oferta from './Oferta';
-import Reach from './Reach';
+// import Reach from './Reach';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-// import Features from './Features';
+import Features from './Features';
 import Results from './Results';
+import VerticalSlide from './VerticalSlide';
+import Usage from './Usage';
+// import Scroll from './Scroll';
+// import Swiperr from './Swiperr';
 
 const ShowHow = () => {
   gsap.registerPlugin(ScrollTrigger);
   const path = useRef(null);
   const arrowRef = useRef(null);
   const widthRef = useRef(null);
+  const boxRef = useRef(null);
   const svg = useRef(null);
   const [mousePos, setMousePos] = useState({
     x: 0,
@@ -38,10 +43,22 @@ const ShowHow = () => {
         `M0,50 Q${posx * 600},${posy * 100} 500,50`
       );
     };
-    window.addEventListener('mousemove', mouseMove);
+    document.addEventListener('mousemove', mouseMove);
+    const mouseLeave = () => {
+      // gsap.to(path.current, {
+      //   ease: Elastic.easeOut.config(1, 0.5),
+      //   attr: { d: 'M250,0 Q250,250 250,500' },
+      // });
+      //@ts-expect-error obvious
+      path.current.setAttribute('d', 'M0,50 Q300,50 500,50');
+    };
+    //@ts-expect-error obvious
+    boxRef.current.addEventListener('mouseout', mouseLeave);
 
     return () => {
       window.removeEventListener('mousemove', mouseMove);
+      //@ts-expect-error obvious
+      boxRef.current.removeEventListener('mouseout', mouseLeave);
     };
   }, []);
   useGSAP(() => {
@@ -130,32 +147,41 @@ const ShowHow = () => {
         </div>
       </div>
       <div className='black-container'>
-        <div className='blue-text py-8'>Let us show you how</div>
-        <div
-          className='roboto text-7xl text-white font-light'
-          style={{ lineHeight: '1.2', marginRight: '240px' }}
-        >
-          At Oferta24, we believe no business is the same; each with unique
-          challenges, objectives and market conditions. That is why we have
-          created a marketing platform that provide flexible, customizable and
-          measureable marketing strategies to compliment the unique needs of any
-          business…including yours.
+        <div className='flex relative '>
+          <div>
+            <div className='blue-text py-8'>Let us show you how</div>
+            <div
+              className='roboto text-7xl text-white font-light'
+              style={{ lineHeight: '1.2', marginRight: '240px' }}
+            >
+              At Oferta24, we believe no business is the same; each with unique
+              challenges, objectives and market conditions. That is why we have
+              created a marketing platform that provide flexible, customizable
+              and measureable marketing strategies to compliment the unique
+              needs of any business…including yours.
+            </div>
+            <div className='button'>Get your FREE Campaign</div>
+            <div ref={boxRef}>
+              <svg
+                ref={svg}
+                viewBox='0 0 600 100'
+                preserveAspectRatio='xMinyMid meet'
+              >
+                <path d='M0,50 Q300,50 500,50' ref={path} />
+              </svg>
+            </div>
+          </div>
+          <div className='sliderVertical'>
+            <VerticalSlide />
+          </div>
         </div>
-        <div className='button'>Get your FREE Campaign</div>
-        <div>
-          <svg
-            ref={svg}
-            viewBox='0 0 600 200'
-            preserveAspectRatio='xMinyMid meet'
-          >
-            <path d='M0,50 Q300,25 600,50' ref={path} />
-          </svg>
-        </div>
-        <div style={{ color: 'white' }}>now services section</div>
         <Oferta />
         <div style={{ height: '100vh' }}></div>
-        <Reach />
-        {/* <Features /> */}
+        {/* <Reach /> */}
+        <Usage />
+        {/* <Swiperr /> */}
+        <Features />
+        {/* <Scroll /> */}
         <Results />
       </div>
     </div>

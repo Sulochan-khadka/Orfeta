@@ -2,13 +2,16 @@ import { useRef } from 'react';
 import image from '../assets/results/phone@2x.png';
 import video from '../assets/results/hello.mp4';
 import gsap from 'gsap';
+import imageBlue from '../assets/results/wcard-sm@2x.png';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import './results.css';
 
 const Results = () => {
   gsap.registerPlugin(ScrollTrigger);
   const horRef = useRef(null);
   const triggerRef = useRef(null);
+  const imageRef=useRef(null)
 
   useGSAP(() => {
     //@ts-expect-error ref can never be null
@@ -28,6 +31,20 @@ const Results = () => {
       scrub: 1,
     });
   });
+
+  useGSAP(()=>{
+    gsap.to(imageRef.current,{
+      rotation:-16,
+      transformOrigin: 'bottom',
+      scrollTrigger:{
+        trigger:imageRef.current,
+        start:'top 60%',
+        end:'top 30%',
+        // markers:true,
+        scrub:2
+      }
+    })
+  },[])
 
   return (
     <div style={{ overflowX: 'hidden' }}>
@@ -53,6 +70,7 @@ const Results = () => {
           overflowX: 'hidden',
         }}
       >
+        <img src={imageBlue} alt='' className='blueCard' ref={imageRef}/>
         <img
           src={image}
           alt='image'

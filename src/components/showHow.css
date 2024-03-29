@@ -77,3 +77,7 @@ path {
   stroke: white;
   fill: none;
 }
+.sliderVertical {
+  position: absolute;
+  left: 85%;
+}
