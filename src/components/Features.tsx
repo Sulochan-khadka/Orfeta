@@ -1,12 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { gsap } from 'gsap/all';
 import { ScrollTrigger } from 'gsap/all';
 import { useGSAP } from '@gsap/react';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
-import SplitType from 'split-type';
-import Splitting from 'splitting';
+// import SplitType from 'split-type';
+// import Splitting from 'splitting';
 import './features.css';
+import Scroll from './Scroll';
 
 // Splitting();
 gsap.registerPlugin(ScrollTrigger);
@@ -84,7 +85,7 @@ const Features = () => {
         style={{ width: '60%', height: '100vh' }}
         ref={staticRef}
       >
-        We deliver targeted, customizable, Risk-Free marketing solutions.
+        <Scroll text='We deliver targeted, customizable, Risk-Free marketing solutions.' />
       </div>
       <div
         style={{ width: '40%', color: 'white', paddingRight: '100px' }}
@@ -96,11 +97,10 @@ const Features = () => {
             style={{ paddingTop: '80%', paddingBottom: '10px' }}
             // ref={textRef}
           >
-            Targeted Marketing Solutions
+            <Scroll text='Targeted Marketing Solutions' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            Campaign on Oferta24 will target members based on interest,
-            demographics, geographic, education, family size, and language.
+            <Scroll text='Campaign on Oferta24 will target members based on interest,demographics, geographic, education, family size, and language.' />
           </div>
         </div>
         <div ref={para2Ref} style={{ opacity: '1' }}>
@@ -108,12 +108,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            Exclusivity
+            <Scroll text='Exclusivity' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            Never compete for exposure on Oferta24, each campaign will enjoy
-            category exclusivity, providing maximum opportunity to convert your
-            promotion into new customer acquisitions.
+            <Scroll text='Never compete for exposure on Oferta24, each campaign will enjoy category exclusivity, providing maximum opportunity to convert your promotion into new customer acquisitions.' />
           </div>
         </div>
         <div ref={para3Ref} style={{ opacity: '1' }}>
@@ -121,13 +119,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            Drive Foot-traffic
+            <Scroll text='Drive Foot-traffic' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            To redeem an Oferta24 coupon, our members must visit the designated
-            retail location of your choosing; driving an increase in visitors
-            traffic, and proving an excellent opportunity for you to sell
-            additional products & services.
+            <Scroll text='To redeem an Oferta24 coupon, our members must visit the designated retail location of your choosing; driving an increase in visitors traffic, and proving an excellent opportunity for you to sell additional products & services.' />
           </div>
         </div>
         <div ref={para4Ref} style={{ opacity: '1' }}>
@@ -135,13 +130,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            Flexibility
+            <Scroll text='Flexibility' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            Each campaign on Oferta24 will allow you to maximum flexibility on
-            your offer, the date of your campaign, the locations your offer can
-            be redeemed, and most importantly, the total coupons you wish to
-            include.
+            <Scroll text='Each campaign on Oferta24 will allow you to maximum flexibility on your offer, the date of your campaign, the locations your offer can be redeemed, and most importantly, the total coupons you wish to include.' />
           </div>
         </div>
         <div ref={para5Ref} style={{ opacity: '1' }}>
@@ -149,12 +141,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            Cost-effective Customer Acquisition
+            <Scroll text='Cost-effective Customer Acquisition' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            From Pay-as-you-Go to Prepaid campaigns, with Oferta24 you will
-            benefit from the lowest customer acquisition cost in Panama starting
-            at $1.00.
+            <Scroll text='From Pay-as-you-Go to Prepaid campaigns, with Oferta24 you will benefit from the lowest customer acquisition cost in Panama starting at $1.00.' />
           </div>
         </div>
         <div ref={para6Ref} style={{ opacity: '1' }}>
@@ -162,12 +152,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            FREE Brand Exposure
+            <Scroll text='FREE Brand Exposure' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            Through strategic logo placement, and targeted notifications,
-            regardless of conversion, your campaign on Oferta24 will deliver
-            your brand tens of thousands of impressions FREE.
+            <Scroll text='Through strategic logo placement, and targeted notifications, regardless of conversion, your campaign on Oferta24 will deliver your brand tens of thousands of impressions FREE.' />
           </div>
         </div>
         <div ref={para7Ref} style={{ opacity: '1' }}>
@@ -175,12 +163,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            in-depth Marketing Insights
+            <Scroll text='in-depth Marketing Insights' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            Oferta24 tracks all member actions, interests and usage history,
-            providing your company with unparalleled insights to ensure your
-            campaign success.
+            <Scroll text='Oferta24 tracks all member actions, interests and usage history, providing your company with unparalleled insights to ensure your campaign success.' />
           </div>
         </div>
         <div ref={para8Ref} style={{ opacity: '1' }}>
@@ -188,13 +174,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            Detailed Reporting
+            <Scroll text='Detailed Reporting' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            Never guess who your advertising campaign reached again. With
-            Oferta24, each campaign will include detailed reporting including
-            the day of the week and time of day each coupon was redeemed, along
-            with the demographic & geographical data of each redemption.
+            <Scroll text='Never guess who your advertising campaign reached again. With Oferta24, each campaign will include detailed reporting including the day of the week and time of day each coupon was redeemed, along with the demographic & geographical data of each redemption.' />
           </div>
         </div>
         <div ref={para9Ref} style={{ opacity: '1' }}>
@@ -202,11 +185,10 @@ const Features = () => {
             className='text-2xl'
             style={{ paddingTop: '20px', paddingBottom: '10px' }}
           >
-            No Risk!
+            <Scroll text='No Risk!' />
           </div>
           <div style={{ paddingBottom: '20px' }}>
-            Enjoy the benefit of NO RISK when you advertise with Oferta24. No
-            result, no cost… it‘s that simple!
+            <Scroll text='Enjoy the benefit of NO RISK when you advertise with Oferta24. No result, no cost… it‘s that simple!' />
           </div>
         </div>
       </div>

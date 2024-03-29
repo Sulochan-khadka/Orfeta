@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import image1 from '../assets/thumb-france-tv.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -12,10 +13,24 @@ import './swiperr.css';
 import { Pagination, Navigation } from 'swiper/modules';
 
 export default function Swiperr() {
+  const swiperRef = useRef(null);
+  const nextRef = useRef(null);
+  const prevRef = useRef(null);
+  useEffect(() => {
+    const prevHandler = () => {
+      swiperRef.current.slidePrev();
+    };
+
+    const nextHandler = () => {
+      swiperRef.current.slideNext();
+    };
+    nextRef.current.addEventListener('click', nextHandler);
+    prevRef.current.addEventListener('click', prevHandler);
+  }, []);
   return (
     <>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={3}
         spaceBetween={30}
         centeredSlides={true}
         loop={true}
@@ -25,26 +40,33 @@ export default function Swiperr() {
         navigation
         modules={[Pagination, Navigation]}
         className='mySwiper'
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        <SwiperSlide>
-          <img src='src/assets/bran-hero1-scaled.jpg' alt='image' />
-        </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {Array.from({ length: 10 }).map((_, i) => (
+          <SwiperSlide key={i} style={{ transition: 'all 0ms ease 0' }}>
+            {({ isActive, isNext, isPrev }) => (
+              <>
+                {isActive && (
+                  <div className='imageDiv'>
+                    <img src={image1} alt='' style={{ height: '100%' }} />
+                  </div>
+                )}
+                {isPrev && (
+                  <div className='imageDiv'>
+                    <img src={image1} alt='' style={{ height: '190px' }} />
+                  </div>
+                )}
+                {isNext && (
+                  <div className='imageDiv'>
+                    <img src={image1} alt='' style={{ height: '190px' }} />
+                  </div>
+                )}
+              </>
+            )}
+          </SwiperSlide>
+        ))}
+        <div className='slider-button slider-button-prev' ref={prevRef}></div>
+        <div className='slider-button slider-button-next' ref={nextRef}></div>
       </Swiper>
     </>
   );

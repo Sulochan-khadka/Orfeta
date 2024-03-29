@@ -3,7 +3,7 @@ import './showHow.css';
 import { motion } from 'framer-motion';
 import logo from '../assets/oferta.png';
 import Oferta from './Oferta';
-import Reach from './Reach';
+// import Reach from './Reach';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -11,8 +11,8 @@ import Features from './Features';
 import Results from './Results';
 import VerticalSlide from './VerticalSlide';
 import Usage from './Usage';
-import Scroll from './Scroll';
-import Swiperr from './Swiperr';
+// import Scroll from './Scroll';
+// import Swiperr from './Swiperr';
 
 const ShowHow = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -49,12 +49,15 @@ const ShowHow = () => {
       //   ease: Elastic.easeOut.config(1, 0.5),
       //   attr: { d: 'M250,0 Q250,250 250,500' },
       // });
+      //@ts-expect-error obvious
       path.current.setAttribute('d', 'M0,50 Q300,50 500,50');
     };
+    //@ts-expect-error obvious
     boxRef.current.addEventListener('mouseout', mouseLeave);
 
     return () => {
       window.removeEventListener('mousemove', mouseMove);
+      //@ts-expect-error obvious
       boxRef.current.removeEventListener('mouseout', mouseLeave);
     };
   }, []);
@@ -172,14 +175,13 @@ const ShowHow = () => {
             <VerticalSlide />
           </div>
         </div>
-        <div style={{ color: 'white' }}>now services section</div>
         <Oferta />
         <div style={{ height: '100vh' }}></div>
         {/* <Reach /> */}
         <Usage />
         {/* <Swiperr /> */}
-        {/* <Features /> */}
-        <Scroll />
+        <Features />
+        {/* <Scroll /> */}
         <Results />
       </div>
     </div>

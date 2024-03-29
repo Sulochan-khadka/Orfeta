@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from './Card';
 import Slider from 'react-slick';
 import './verticalslide.css';

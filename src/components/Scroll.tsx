@@ -1,39 +1,40 @@
 import { useRef } from 'react';
-import SplitType from 'split-type';
-import { gsap } from 'gsap/all';
-import { ScrollTrigger } from 'gsap/all';
-import { useGSAP } from '@gsap/react';
 import './scroll.css';
+import { motion, useInView } from 'framer-motion';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const Scroll = () => {
+const Scroll = ({ text }) => {
   const wordRef = useRef(null);
-  const word = new SplitType(wordRef.current);
 
-  useGSAP(() => {
-    gsap.to(wordRef.current, {
-      y: 0,
-      // opacity:1,
-      stagger: 0.05,
-      scrollTrigger: {
-        trigger: wordRef.current,
-        start: 'top 30%',
-        end: 'bottom 30%',
-        markers: true,
-        scrub: true,
-      },
-    });
-  });
+  const isInView = useInView(wordRef);
 
   return (
     <div>
-      <div ref={wordRef} className='texts'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. At laboriosam
-        tempore dolor doloribus exercitationem a optio laborum, excepturi, rem,
-        esse voluptatibus non quod qui ipsa dolore doloremque? Aspernatur,
-        soluta optio. Impedit hic voluptatem laudantium facere dolorem. Sint
-        quaerat architecto rem.
+      <div className='texts'>
+        <motion.span
+          ref={wordRef}
+          initial={{ opacity: 0, y: 0 }}
+          animate={isInView ? { opacity: 1, y: -50 } : { opacity: 0 }}
+          transition={{ staggerChildren: 0.9, duration: 1 }}
+          aria-hidden
+        >
+          {/* {text.split('\n').map((line: string) => { */}
+          {/* console.log(line); */}
+          {/* return ( */}
+          {/* <span className='inline-block'> */}
+          {text.split(' ').map((word, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: -50 }}
+              className='inline-block'
+            >
+              {`${word}\u00A0`}
+            </motion.span>
+          ))}
+          {/* </span> */}
+          {/* ); */}
+          {/* })} */}
+        </motion.span>
       </div>
     </div>
   );

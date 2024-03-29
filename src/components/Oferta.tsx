@@ -5,9 +5,10 @@ import image3 from '../assets/oferta24/julia-solonina-aIcqT3J7xko-unsplash.jpg';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import './oferta.css';
 const Oferta = () => {
   gsap.registerPlugin(ScrollTrigger);
-  const refTitle = useRef(null);
+  // const refTitle = useRef(null);
   const refcontent = useRef(null);
   const refTop = useRef(null);
   const ref1 = useRef(null);
@@ -76,9 +77,9 @@ const Oferta = () => {
       end: '98% top',
       scrub: true,
     };
-    gsap.to(refTitle.current, {
+    gsap.to(refTop.current, {
       scrollTrigger: {
-        trigger: refTitle.current,
+        trigger: refTop.current,
         pin: refTop.current,
         pinSpacing: false,
         start: 'top top',
@@ -309,10 +310,18 @@ const Oferta = () => {
       </div>
       <div ref={refcontent} style={{ height: '800vh' }}>
         <div className='flex px-40 justify-evenly absolute' ref={ref1}>
-          <div style={{ width: '50%', height: '50vh', paddingRight: '40px' }}>
-            <img src={image1} alt='' />
+          <div
+            style={{
+              width: '30%',
+              height: '50vh',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
+            }}
+          >
+            <img src={image1} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>
               Choose City & Select Target Market
             </div>
@@ -325,14 +334,16 @@ const Oferta = () => {
         <div className='flex px-40 justify-evenly absolute' ref={ref2}>
           <div
             style={{
-              width: '50%',
+              width: '30%',
               height: '50vh',
-              paddingRight: '40px',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
             }}
           >
-            <img src={image2} alt='' />
+            <img src={image2} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>Create Offer & Schedule date</div>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae sed
             placeat odio quibusdam, distinctio, temporibus voluptatum velit
@@ -341,10 +352,18 @@ const Oferta = () => {
           </div>
         </div>
         <div className='flex px-40 justify-evenly absolute' ref={ref3}>
-          <div style={{ width: '50%', height: '50vh', paddingRight: '40px' }}>
-            <img src={image3} alt='' />
+          <div
+            style={{
+              width: '30%',
+              height: '50vh',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
+            }}
+          >
+            <img src={image3} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>Publish Offer</div>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae sed
             placeat odio quibusdam, distinctio, temporibus voluptatum velit
@@ -353,10 +372,18 @@ const Oferta = () => {
           </div>
         </div>
         <div className='flex px-40 justify-evenly absolute' ref={ref4}>
-          <div style={{ width: '50%', height: '50vh', paddingRight: '40px' }}>
-            <img src={image3} alt='' />
+          <div
+            style={{
+              width: '30%',
+              height: '50vh',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
+            }}
+          >
+            <img src={image3} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>
               Members Receive Instant Alert
             </div>
@@ -367,10 +394,18 @@ const Oferta = () => {
           </div>
         </div>
         <div className='flex px-40 justify-evenly absolute' ref={ref5}>
-          <div style={{ width: '50%', height: '50vh', paddingRight: '40px' }}>
-            <img src={image3} alt='' />
+          <div
+            style={{
+              width: '30%',
+              height: '50vh',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
+            }}
+          >
+            <img src={image3} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>Offer Downloaded</div>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae sed
             placeat odio quibusdam, distinctio, temporibus voluptatum velit
@@ -379,10 +414,18 @@ const Oferta = () => {
           </div>
         </div>
         <div className='flex px-40 justify-evenly absolute' ref={ref6}>
-          <div style={{ width: '50%', height: '50vh', paddingRight: '40px' }}>
-            <img src={image3} alt='' />
+          <div
+            style={{
+              width: '30%',
+              height: '50vh',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
+            }}
+          >
+            <img src={image3} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>
               Member redeems offer, and become your customer
             </div>
@@ -393,10 +436,18 @@ const Oferta = () => {
           </div>
         </div>
         <div className='flex px-40 justify-evenly absolute' ref={ref7}>
-          <div style={{ width: '50%', height: '50vh', paddingRight: '40px' }}>
-            <img src={image3} alt='' />
+          <div
+            style={{
+              width: '30%',
+              height: '50vh',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
+            }}
+          >
+            <img src={image3} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>
               Real time monitoring & Analytics
             </div>
@@ -407,10 +458,18 @@ const Oferta = () => {
           </div>
         </div>
         <div className='flex px-40 justify-evenly' ref={ref8}>
-          <div style={{ width: '50%', height: '50vh', paddingRight: '40px' }}>
-            <img src={image3} alt='' />
+          <div
+            style={{
+              width: '30%',
+              height: '50vh',
+              paddingRight: '10px',
+              position: 'relative',
+              borderRadius: '20px',
+            }}
+          >
+            <img src={image3} alt='' className='ofrImg' />
           </div>
-          <div style={{ width: '50%', paddingLeft: '40px', color: 'white' }}>
+          <div style={{ width: '50%', paddingLeft: '10px', color: 'white' }}>
             <div style={{ fontSize: '50px' }}>No Result… No Cost!</div>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae sed
             placeat odio quibusdam, distinctio, temporibus voluptatum velit

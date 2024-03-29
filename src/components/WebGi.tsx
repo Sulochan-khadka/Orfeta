@@ -18,10 +18,12 @@ const WebGi = () => {
     canvas.height = window.innerHeight;
     // @ts-expect-error Image width and height may not exist
     const context = canvas.getContext('2d');
-    const frameCount = 639;
+    const frameCount = 420;
 
-    const currentFrame = (index: number) =>
-      `https://d38k0tpz62drdj.cloudfront.net/slides/scene${index + 1}.jpg`;
+    const currentFrame = (index: number, extension: string) =>
+      `https://d38k0tpz62drdj.cloudfront.net/slides/${String(
+        index + 1
+      ).padStart(3, '0')}.${extension}`;
 
     const images: HTMLImageElement[] = [];
     const ball = { frame: 0 };
@@ -37,7 +39,11 @@ const WebGi = () => {
 
     for (let i = 0; i < frameCount; i++) {
       const img = new Image();
-      img.src = currentFrame(i);
+      if (i < 282) {
+        img.src = currentFrame(i, 'jpg');
+      } else {
+        img.src = currentFrame(i, 'png');
+      }
       images.push(img);
     }
 

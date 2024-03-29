@@ -13,6 +13,7 @@
     "@gsap/react": "^2.1.0",
     "@studio-freight/react-lenis": "^0.0.44",
     "@types/gsap": "^3.0.0",
+    "@types/react-icons": "^3.0.0",
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.9.0.tgz",
     "framer-motion": "^11.0.5",
     "gsap": "^3.12.5",
