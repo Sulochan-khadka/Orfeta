@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import image1 from '../assets/thumb-france-tv.jpg';
@@ -18,13 +18,17 @@ export default function Swiperr() {
   const prevRef = useRef(null);
   useEffect(() => {
     const prevHandler = () => {
+      //@ts-expect-error obvious
       swiperRef.current.slidePrev();
     };
 
     const nextHandler = () => {
+      //@ts-expect-error obvious
       swiperRef.current.slideNext();
     };
+    //@ts-expect-error obvious
     nextRef.current.addEventListener('click', nextHandler);
+    //@ts-expect-error obvious
     prevRef.current.addEventListener('click', prevHandler);
   }, []);
   return (
@@ -40,6 +44,7 @@ export default function Swiperr() {
         navigation
         modules={[Pagination, Navigation]}
         className='mySwiper'
+        //@ts-expect-error obvious
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {Array.from({ length: 10 }).map((_, i) => (

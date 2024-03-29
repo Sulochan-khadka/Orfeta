@@ -1,6 +1,6 @@
-import React from 'react';
 import './card.css';
 
+//@ts-expect-error obvious
 const Card = ({ ad, title, bio }) => {
   return (
     <div className='card-container'>

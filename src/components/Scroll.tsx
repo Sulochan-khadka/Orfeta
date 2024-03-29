@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import './scroll.css';
 import { motion, useInView } from 'framer-motion';
 
+//@ts-expect-error obvious
 const Scroll = ({ text }) => {
   const wordRef = useRef(null);
 
@@ -21,6 +22,7 @@ const Scroll = ({ text }) => {
           {/* console.log(line); */}
           {/* return ( */}
           {/* <span className='inline-block'> */}
+          {/* @ts-expect-error obvious */}
           {text.split(' ').map((word, index) => (
             <motion.span
               key={index}
