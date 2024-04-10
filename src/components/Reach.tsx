@@ -1,9 +1,11 @@
 import Slider from 'react-slick';
 import { useRef } from 'react';
+
 import './reach.css';
 
 const Reach = () => {
   const arrowRef = useRef(null);
+
   const settings = {
     className: 'center',
     centerMode: true,

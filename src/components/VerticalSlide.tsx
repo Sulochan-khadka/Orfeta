@@ -14,6 +14,7 @@ const VerticalSlide = () => {
     vertical: true,
     verticalSwiping: true,
     speed: 60000,
+    arrows: false,
   };
   return (
     <div>

@@ -4,9 +4,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './style.css';
 import { useGSAP } from '@gsap/react';
 import Texts from './Texts';
+//@ts-expect-error this
+import imagesLoaded from 'imagesloaded';
 
 const WebGi = () => {
   const canvasRef = useRef(null);
+  // const [imageisLoaded, setImageisLoaded] = useState(false);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -18,12 +21,15 @@ const WebGi = () => {
     canvas.height = window.innerHeight;
     // @ts-expect-error Image width and height may not exist
     const context = canvas.getContext('2d');
-    const frameCount = 420;
+    const frameCount = 546;
 
     const currentFrame = (index: number, extension: string) =>
-      `https://d38k0tpz62drdj.cloudfront.net/slides/${String(
+      `https://finaleggscenes.s3.amazonaws.com/ImgTools.co-renamed-6/scene${
         index + 1
-      ).padStart(3, '0')}.${extension}`;
+      }.${extension}`;
+    // `https://d38k0tpz62drdj.cloudfront.net/slides/${String(
+    //   index + 1
+    // ).padStart(3, '0')}.${extension}`;
 
     const images: HTMLImageElement[] = [];
     const ball = { frame: 0 };
@@ -46,7 +52,9 @@ const WebGi = () => {
       }
       images.push(img);
     }
-
+    imagesLoaded(images, { background: true }, () => {
+      // setImageisLoaded(true);
+    });
     gsap.to(ball, {
       frame: frameCount - 1,
       snap: 'frame',
@@ -63,20 +71,26 @@ const WebGi = () => {
   });
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        zIndex: '999',
-      }}
-    >
-      <Texts />
-      <canvas
-        ref={canvasRef}
-        className='canvas'
-        style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}
-      ></canvas>
+    <div>
+      {imagesLoaded ? (
+        <div
+          style={{
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            zIndex: '999',
+          }}
+        >
+          <Texts />
+          <canvas
+            ref={canvasRef}
+            className='canvas'
+            style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}
+          ></canvas>
+        </div>
+      ) : (
+        <div style={{ height: '100vh', overflow: 'hidden' }}>Hello</div>
+      )}
     </div>
   );
 };

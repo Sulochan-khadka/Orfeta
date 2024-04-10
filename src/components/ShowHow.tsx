@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 import logo from '../assets/oferta.png';
 import Oferta from './Oferta';
 // import Reach from './Reach';
-import gsap from 'gsap';
+import { gsap, Elastic } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { EasePack } from 'gsap/EasePack';
 import Features from './Features';
 import Results from './Results';
 import VerticalSlide from './VerticalSlide';
@@ -16,6 +17,7 @@ import Usage from './Usage';
 
 const ShowHow = () => {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(EasePack);
   const path = useRef(null);
   const arrowRef = useRef(null);
   const widthRef = useRef(null);
@@ -45,20 +47,18 @@ const ShowHow = () => {
     };
     document.addEventListener('mousemove', mouseMove);
     const mouseLeave = () => {
-      // gsap.to(path.current, {
-      //   ease: Elastic.easeOut.config(1, 0.5),
-      //   attr: { d: 'M250,0 Q250,250 250,500' },
-      // });
-      //@ts-expect-error obvious
-      path.current.setAttribute('d', 'M0,50 Q300,50 500,50');
+      gsap.to(path.current, {
+        ease: Elastic.easeOut.config(1, 0.3),
+        attr: { d: 'M0,50 Q300,50 500,50' },
+      });
+      console.log('hi');
+      // path.current.setAttribute('d', 'M0,50 Q300,50 500,50');
     };
-    //@ts-expect-error obvious
-    boxRef.current.addEventListener('mouseout', mouseLeave);
+    document.addEventListener('mouseleave', mouseLeave);
 
     return () => {
-      window.removeEventListener('mousemove', mouseMove);
-      //@ts-expect-error obvious
-      boxRef.current.removeEventListener('mouseout', mouseLeave);
+      document.removeEventListener('mousemove', mouseMove);
+      document.removeEventListener('mouseleave', mouseLeave);
     };
   }, []);
   useGSAP(() => {
@@ -83,11 +83,12 @@ const ShowHow = () => {
   return (
     <div ref={arrowRef} style={{ position: 'relative' }}>
       <motion.div className='cursor' variants={variants} animate='default' />
-      <div
-        className='logo'
-        style={{ position: 'fixed', top: '0', left: '0', zIndex: '888' }}
-      >
-        <img src={logo} alt='logo' />
+      <div className='logo' style={{ position: 'relative' }}>
+        <img
+          src={logo}
+          alt='logo'
+          style={{ position: 'absolute', top: '80px' }}
+        />
       </div>
       <div className='arrow'>
         <div
@@ -151,7 +152,7 @@ const ShowHow = () => {
           <div>
             <div className='blue-text py-8'>Let us show you how</div>
             <div
-              className='roboto text-7xl text-white font-light'
+              className='roboto text-6xl text-white font-light'
               style={{ lineHeight: '1.2', marginRight: '240px' }}
             >
               At Oferta24, we believe no business is the same; each with unique

@@ -2,6 +2,9 @@ import { useEffect, useRef } from 'react';
 // import arrowLeft from '../assets/arrow-l-white.svg';
 // import arrowRight from '../assets/arrow-r-white.svg';
 import './usage.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import { useSwiperSlide } from 'swiper/react';
 import {
@@ -19,6 +22,9 @@ const Usage = () => {
   const swiperRef = useRef(null);
   const nextRef = useRef(null);
   const prevRef = useRef(null);
+  const staticRef = useRef(null);
+  const scrollRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     const prevHandler = () => {
       //@ts-expect-error obvious
@@ -34,14 +40,31 @@ const Usage = () => {
     //@ts-expect-error obvious
     prevRef.current.addEventListener('click', prevHandler);
   }, []);
+  useGSAP(() => {
+    const staticPart = staticRef.current;
+    const scrollPart = scrollRef.current;
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: scrollPart,
+        start: 'top 20%',
+        end: `bottom top`,
+        pin: staticPart,
+        scrub: true,
+        // markers: true,
+        // onEnter: () => console.log('Pin starts'),
+        // onLeave: () => console.log('Pin ends'),
+      },
+    });
+  });
 
   return (
     // <div className='flex justify-center items-center'>
-    <div className='usageContainer'>
+    <div className='usageContainer' ref={staticRef}>
       <div className='flex justify-center items-center'>
         <div className='reach-title'>REACH & USAGE</div>
       </div>
-      <div className='swiper-container'>
+      <div className='swiper-container' ref={scrollRef}>
         <div className='py-9'>
           <Swiper
             autoHeight={true}
