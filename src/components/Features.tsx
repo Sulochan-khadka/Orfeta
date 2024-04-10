@@ -82,13 +82,13 @@ const Features = () => {
     <div className='flex' ref={overRef}>
       <div
         className='poppins text-8xl text-white py-20'
-        style={{ width: '60%', height: '100vh' }}
+        style={{ width: '62%', height: '100vh' }}
         ref={staticRef}
       >
         <Scroll text='We deliver targeted, customizable, Risk-Free marketing solutions.' />
       </div>
       <div
-        style={{ width: '40%', color: 'white', paddingRight: '100px' }}
+        style={{ width: '38%', color: 'white', paddingRight: '100px' }}
         ref={scrollRef}
       >
         <div ref={para1Ref} style={{ overflow: 'hidden', opacity: '1' }}>

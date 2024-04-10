@@ -10,11 +10,11 @@ const Texts = () => {
   const scrollRef2 = useRef(null);
   const scrollRef3 = useRef(null);
   const scrollRef4 = useRef(null);
-  // const scrollRef5 = useRef(null);
+  const scrollRef5 = useRef(null);
   const fadeOut2 = useRef(null);
   const fadeOut3 = useRef(null);
   const fadeOut4 = useRef(null);
-  // const fadeOut5 = useRef(null);
+  const fadeOut5 = useRef(null);
   const fadeOut6 = useRef(null);
   // const fadeOut7 = useRef(null);
   //ref 5 is bottom
@@ -34,7 +34,7 @@ const Texts = () => {
         trigger: scrollRef1.current,
         start: 'bottom bottom',
         end: '10% top',
-        pin: scrollRef1.current,
+        // pin: scrollRef1.current,
         scrub: 2,
       },
     });
@@ -121,6 +121,30 @@ const Texts = () => {
         // markers: true,
       },
     });
+    const timeline5 = gsap.timeline();
+    timeline5.from(fadeOut5.current, {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: scrollRef5.current,
+        start: ' 80% top',
+        end: 'bottom 30%',
+        pin: fadeOut5.current,
+        scrub: 2,
+        // markers: true,
+      },
+    });
+
+    timeline5.to(scrollRef5.current, {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: scrollRef5.current,
+        start: 'bottom 50%', // Start the fade-out when the element reaches the bottom
+        end: 'bottom 5%', // Adjust this value to control the fade-out distance
+        pin: false, // Don't pin during fade-out
+        scrub: 2,
+        // markers: true,
+      },
+    });
     // const timeline5 = gsap.timeline();
     // timeline5.from(scrollRef4.current, {
     //   scrollTrigger: {
@@ -188,7 +212,8 @@ const Texts = () => {
           style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            alignItems: 'end',
+            // alignItems: 'end',
+            marginTop: '40%',
             fontSize: '75px',
             fontFamily: 'roboto',
             fontWeight: '400',
@@ -206,11 +231,11 @@ const Texts = () => {
           style={{
             // opacity: 0,
             fontFamily: 'roboto',
-            fontSize: '30px',
-            fontWeight: '300',
+            fontSize: '40px',
+            fontWeight: '350',
             width: '470px',
             lineHeight: '1.2',
-            height: '100vh',
+            height: '140vh',
             overflow: 'hidden',
           }}
           ref={scrollRef2}
@@ -222,11 +247,11 @@ const Texts = () => {
         <div
           style={{
             fontFamily: 'roboto',
-            fontSize: '30px',
-            fontWeight: '300',
+            fontSize: '40px',
+            fontWeight: '350',
             width: '470px',
             lineHeight: '1.2',
-            height: '100vh',
+            height: '130vh',
             overflow: 'hidden',
           }}
           ref={scrollRef3}
@@ -240,11 +265,11 @@ const Texts = () => {
           <div
             style={{
               fontFamily: 'roboto',
-              fontSize: '30px',
-              fontWeight: '300',
+              fontSize: '40px',
+              fontWeight: '350',
               width: '470px',
               lineHeight: '1.2',
-              height: '150vh',
+              height: '130vh',
               overflow: 'hidden',
             }}
           >
@@ -260,21 +285,6 @@ const Texts = () => {
                 In today’s highly competitive business environment, customers
                 seem to have all the power; as so many businesses are vying to
                 for the attention of the consumer market.
-              </div>
-              <div
-                style={{
-                  fontFamily: 'sans-serif',
-                  fontSize: '16px',
-                  fontWeight: '300',
-                  lineHeight: '1.2',
-                  width: 'auto',
-                  // height: '100vh',
-                  marginTop: '50vh',
-                  overflow: 'hidden',
-                }}
-              >
-                So how does your business stand out, attract new customers and
-                grow sales?
               </div>
             </div>
           </div>
@@ -292,29 +302,34 @@ const Texts = () => {
             sales?
           </div> */}
         </div>
-        {/* <div
+        <div
           style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            marginTop: '80%',
             fontFamily: 'sans-serif',
-            fontSize: '16px',
+            fontSize: '30px',
             fontWeight: '300',
             lineHeight: '1.2',
             width: 'auto',
-            height: '100vh',
+            height: '50vh',
             overflow: 'hidden',
           }}
           ref={scrollRef5}
         >
-          So how does your business stand out, attract new customers and grow
-          sales?
-        </div> */}
+          <div ref={fadeOut5}>
+            So how does your business stand out, attract new customers and grow
+            sales?
+          </div>
+        </div>
         <div
           style={{
             fontFamily: 'roboto',
-            fontSize: '30px',
-            fontWeight: '300',
+            fontSize: '40px',
+            fontWeight: '350',
             width: '470px',
             lineHeight: '1.2',
-            height: '450vh',
+            height: '170vh',
             overflow: 'hidden',
           }}
           ref={scrollRef6}
@@ -330,7 +345,7 @@ const Texts = () => {
             display: 'flex',
             justifyContent: 'flex-start',
             alignItems: 'end',
-            fontSize: '50px',
+            fontSize: '55px',
             fontFamily: 'roboto',
             fontWeight: '400',
             lineHeight: '1.1',
